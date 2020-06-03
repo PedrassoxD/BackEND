@@ -64,9 +64,9 @@ public class TareasServiceImpl implements TareasService {
 	 */
 	@Override
 	public void crearTareas(Tareas tarea, int codreunion, int[] codusu, int codsreunion) {
-		Set<Usuarios> usuario = new HashSet<Usuarios>();
+		Set<Usuarios> usuario = new HashSet<>();
 		
-		Set<Reunion> reunion = new HashSet<Reunion>();
+		Set<Reunion> reunion = new HashSet<>();
 		
 		Reunion reu = rr.findOne(codreunion);
 		

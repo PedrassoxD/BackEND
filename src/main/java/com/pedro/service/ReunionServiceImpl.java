@@ -58,7 +58,7 @@ public class ReunionServiceImpl implements ReunionService {
 	@Override
 	public void crearReunion(Reunion reunion, int codsreunion, int[] codsusu) {
 		
-		Set<Usuarios> usuario = new HashSet<Usuarios>();
+		Set<Usuarios> usuario = new HashSet<>();
 		
 		SerieReunion newSR = sr.findOne(codsreunion);
 		

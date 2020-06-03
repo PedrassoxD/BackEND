@@ -52,7 +52,7 @@ public class SerieReunionServiceImpl implements SerieReunionService {
 	@Override
 	public void crearSerieReunion(SerieReunion reunion, int[] codusu) {
 		
-		Set<Usuarios> usuario = new HashSet<Usuarios>();
+		Set<Usuarios> usuario = new HashSet<>();
 		
 		for (int i : codusu) {			
 			Usuarios user = userR.findOne(i);

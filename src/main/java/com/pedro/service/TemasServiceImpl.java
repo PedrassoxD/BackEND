@@ -69,7 +69,7 @@ public class TemasServiceImpl implements TemasService {
 	@Override
 	public void crearTemas(Temas tema, int codreunion, int codsreunion) {
 		
-		Set<Reunion> reu = new HashSet<Reunion>();
+		Set<Reunion> reu = new HashSet<>();
 		
 		Reunion newR = rr.findOne(codreunion);
 		
