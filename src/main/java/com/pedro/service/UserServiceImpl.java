@@ -102,7 +102,7 @@ public class UserServiceImpl implements UserService {
 		List<Usuarios> users = new ArrayList<Usuarios>();
 		
 		for (int cods : codigos) {
-			Usuarios user = userRepository.getOne(cods);
+			Usuarios user = userRepository.findOne(cods);
 			
 			if(user != null) {
 				users.add(user);
@@ -156,7 +156,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void modificarUsuario(Usuarios user) {
 		
-		Usuarios updateUser = userRepository.getOne(user.getCodUsu());
+		Usuarios updateUser = userRepository.findOne(user.getCodUsu());
 		
 		if(updateUser != null) {
 			
@@ -177,7 +177,7 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public int eliminarUsuario(int codusu) {
-		Usuarios deleteUser = userRepository.getOne(codusu);
+		Usuarios deleteUser = userRepository.findOne(codusu);
 		
 		if(deleteUser != null) {
 			try {

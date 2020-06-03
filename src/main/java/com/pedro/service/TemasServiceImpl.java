@@ -71,9 +71,9 @@ public class TemasServiceImpl implements TemasService {
 		
 		Set<Reunion> reu = new HashSet<Reunion>();
 		
-		Reunion newR = rr.getOne(codreunion);
+		Reunion newR = rr.findOne(codreunion);
 		
-		SerieReunion newSR = sr.getOne(codsreunion);
+		SerieReunion newSR = sr.findOne(codsreunion);
 		
 		if(newR != null && newSR != null) {
 			reu.add(newR);
@@ -98,7 +98,7 @@ public class TemasServiceImpl implements TemasService {
 	@Override
 	public void añadirInfoTema(Temas tema, int codTema) {
 		
-		Temas updateTema = tr.getOne(codTema);
+		Temas updateTema = tr.findOne(codTema);
 		String infoTema = "";
 		
 		if(updateTema != null) {
@@ -122,7 +122,7 @@ public class TemasServiceImpl implements TemasService {
 	@Override
 	public void añadirDecisionTema(Temas tema, int codTema) {
 		
-		Temas updateTema = tr.getOne(codTema);
+		Temas updateTema = tr.findOne(codTema);
 		
 		if(updateTema != null) {
 			updateTema.setDecision(tema.getDecision());
@@ -139,7 +139,7 @@ public class TemasServiceImpl implements TemasService {
 	@Override
 	public void cerrarTemas(Temas tema) {
 		
-		Temas tem = tr.getOne(tema.getCodTema());
+		Temas tem = tr.findOne(tema.getCodTema());
 		
 		if(tem != null) {
 			tem.setCerrado(1);
@@ -169,7 +169,7 @@ public class TemasServiceImpl implements TemasService {
 	@Override
 	public void saveTemaAntiguo(Temas[] tema, int codreunion) {
 		
-		Reunion reunion = rr.getOne(codreunion);
+		Reunion reunion = rr.findOne(codreunion);
 		
 		if(tema.length > 0 && reunion != null) {
 			
@@ -202,7 +202,7 @@ public class TemasServiceImpl implements TemasService {
 	@Override
 	public void modificarTema(Temas tema) {
 		
-		Temas updateTema = tr.getOne(tema.getCodTema());
+		Temas updateTema = tr.findOne(tema.getCodTema());
 		
 		if(updateTema != null) {
 			
@@ -224,7 +224,7 @@ public class TemasServiceImpl implements TemasService {
 	@Override
 	public void añadirSeguimientoTemaCerrado(Temas tema) {
 		
-		Temas segTema = tr.getOne(tema.getCodTema());
+		Temas segTema = tr.findOne(tema.getCodTema());
 		String seguimiento = "";
 		
 		if(segTema != null) {

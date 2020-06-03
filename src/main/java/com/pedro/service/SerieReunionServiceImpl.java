@@ -55,7 +55,7 @@ public class SerieReunionServiceImpl implements SerieReunionService {
 		Set<Usuarios> usuario = new HashSet<Usuarios>();
 		
 		for (int i : codusu) {			
-			Usuarios user = userR.getOne(i);
+			Usuarios user = userR.findOne(i);
 			
 			usuario.add(user);
 		}
@@ -84,7 +84,7 @@ public class SerieReunionServiceImpl implements SerieReunionService {
 	 */
 	@Override
 	public void modificarSerieReunion(SerieReunion reunion) {
-		SerieReunion serieReunion = srRepo.getOne(reunion.getCodSReunion());
+		SerieReunion serieReunion = srRepo.findOne(reunion.getCodSReunion());
 		
 		if(serieReunion != null) {
 			
@@ -106,13 +106,13 @@ public class SerieReunionServiceImpl implements SerieReunionService {
 	@Override
 	public void modificarSerieReunionInvitandoMasUsuarios(SerieReunion reunion, int[] codusu) {
 		
-		SerieReunion serieReunion = srRepo.getOne(reunion.getCodSReunion());
+		SerieReunion serieReunion = srRepo.findOne(reunion.getCodSReunion());
 		Set<Usuarios> usuario = reunion.getUsuarios();
 		
 		if(serieReunion != null) {
 			
 			for (int i : codusu) {
-				Usuarios user = userR.getOne(i);
+				Usuarios user = userR.findOne(i);
 				
 				usuario.add(user);
 			}
@@ -136,8 +136,8 @@ public class SerieReunionServiceImpl implements SerieReunionService {
 	@Override
 	public void eliminarParticipante(SerieReunion sr, int codusu) {
 		
-		SerieReunion serieReun = srRepo.getOne(sr.getCodSReunion());
-		Usuarios us = userR.getOne(codusu);
+		SerieReunion serieReun = srRepo.findOne(sr.getCodSReunion());
+		Usuarios us = userR.findOne(codusu);
 		
 		if(serieReun != null && us != null) {
 			

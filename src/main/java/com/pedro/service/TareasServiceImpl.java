@@ -68,12 +68,12 @@ public class TareasServiceImpl implements TareasService {
 		
 		Set<Reunion> reunion = new HashSet<Reunion>();
 		
-		Reunion reu = rr.getOne(codreunion);
+		Reunion reu = rr.findOne(codreunion);
 		
-		SerieReunion serieR = sr.getOne(codsreunion);
+		SerieReunion serieR = sr.findOne(codsreunion);
 		
 		for (int i : codusu) {
-			Usuarios user = ur.getOne(i);
+			Usuarios user = ur.findOne(i);
 			
 			usuario.add(user);
 		}
@@ -109,7 +109,7 @@ public class TareasServiceImpl implements TareasService {
 	@Override
 	public void cerrarTareas(Tareas tarea) {
 		
-		Tareas tar = tareasRepo.getOne(tarea.getCodTarea());
+		Tareas tar = tareasRepo.findOne(tarea.getCodTarea());
 		
 		if(tar != null) {
 			tar.setCerrado(1);
@@ -139,7 +139,7 @@ public class TareasServiceImpl implements TareasService {
 	@Override
 	public void saveTareasAntiguas(Tareas[] tareas, int codreunion) {
 		
-		Reunion reunion = rr.getOne(codreunion);
+		Reunion reunion = rr.findOne(codreunion);
 		
 		if(tareas.length > 0 && reunion != null) {
 			
@@ -172,7 +172,7 @@ public class TareasServiceImpl implements TareasService {
 	@Override
 	public void modificarTarea(Tareas tarea, int[] codusu) {
 		
-		Tareas updateTarea = tareasRepo.getOne(tarea.getCodTarea());
+		Tareas updateTarea = tareasRepo.findOne(tarea.getCodTarea());
 		Set<Usuarios> usuario = tarea.getUsuarios();
 		
 		if(updateTarea != null) {
@@ -182,7 +182,7 @@ public class TareasServiceImpl implements TareasService {
 			
 			if(codusu[0] != -1) {
 				for (int cod : codusu) {
-					Usuarios usu = ur.getOne(cod);
+					Usuarios usu = ur.findOne(cod);
 					usuario.add(usu);
 				}
 				updateTarea.setUsuarios(usuario);
@@ -201,8 +201,8 @@ public class TareasServiceImpl implements TareasService {
 	@Override
 	public void eliminarResponsable(Tareas tarea, int codusu) {
 		
-		Tareas tar = tareasRepo.getOne(tarea.getCodTarea());
-		Usuarios us = ur.getOne(codusu);
+		Tareas tar = tareasRepo.findOne(tarea.getCodTarea());
+		Usuarios us = ur.findOne(codusu);
 		
 		if(tar != null && us != null) {
 			

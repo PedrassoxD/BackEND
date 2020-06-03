@@ -77,7 +77,7 @@ public class EmailServiceImpl implements EmailService {
 	        message.setFrom(new InternetAddress(emisor));
 	        
 	        for (int rec : receptores) {
-				Usuarios us = userR.getOne(rec);
+				Usuarios us = userR.findOne(rec);
 				message.addRecipients(Message.RecipientType.TO, us.getCorreo());		
 				participantes += "  - " + us.getRol() + " - " + us.getNombre() + "\n";
 			}
@@ -144,7 +144,7 @@ public class EmailServiceImpl implements EmailService {
 	        message.setFrom(new InternetAddress(emisor));
 	        
 	        for (int rec : receptores) {
-				Usuarios us = userR.getOne(rec);
+				Usuarios us = userR.findOne(rec);
 				message.addRecipients(Message.RecipientType.TO, us.getCorreo());		
 				asistentes += "  - " + us.getRol() + " - " + us.getNombre() + "\n";
 			}
@@ -153,7 +153,7 @@ public class EmailServiceImpl implements EmailService {
 	        	temas = "";
 	        }else {
 	        	for (int codtem : codtema) {
-		        	Temas tema = tr.getOne(codtem);
+		        	Temas tema = tr.findOne(codtem);
 		        	if(tema.getCerrado() == 1) {
 		        		temas += "  - " + tema.getTitulo() + "  " + "*" + tema.getEtiqueta() + "*" + " " + "(CERRADO)" + "\n";	        		
 		        	}else {
@@ -166,7 +166,7 @@ public class EmailServiceImpl implements EmailService {
 	        	tareas = "";
 	        }else {
 	        	for (int codtar : codtarea) {
-	        		Tareas tarea = taR.getOne(codtar);
+	        		Tareas tarea = taR.findOne(codtar);
 	        		if(tarea.getCerrado() == 1) {
 	        			for(Usuarios us : tarea.getUsuarios()) {
 	        				users += "          " + us.getRol() + " - " + us.getNombre() + "\n";
@@ -227,7 +227,7 @@ public class EmailServiceImpl implements EmailService {
 		
 		String responsables = "";
 		
-		Tareas tarea = taR.getOne(codtarea);
+		Tareas tarea = taR.findOne(codtarea);
 		
 		String emisor = "vconvents@gmail.com";
 

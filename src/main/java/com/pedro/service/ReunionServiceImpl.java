@@ -60,10 +60,10 @@ public class ReunionServiceImpl implements ReunionService {
 		
 		Set<Usuarios> usuario = new HashSet<Usuarios>();
 		
-		SerieReunion newSR = sr.getOne(codsreunion);
+		SerieReunion newSR = sr.findOne(codsreunion);
 		
 		for (int i : codsusu) {			
-			Usuarios user = userR.getOne(i);
+			Usuarios user = userR.findOne(i);
 			
 			usuario.add(user);
 		}
@@ -110,7 +110,7 @@ public class ReunionServiceImpl implements ReunionService {
 	@Override
 	public void modificarReunion(Reunion reunion, int[] codusu) {
 		
-		Reunion updateReunion = rr.getOne(reunion.getCodReunion());
+		Reunion updateReunion = rr.findOne(reunion.getCodReunion());
 		Set<Usuarios> participantes = reunion.getUsuarios();
 		
 		if(updateReunion != null) {
@@ -119,7 +119,7 @@ public class ReunionServiceImpl implements ReunionService {
 			
 			if(codusu[0] != -1) {
 				for (int cods : codusu) {
-					Usuarios us = userR.getOne(cods);
+					Usuarios us = userR.findOne(cods);
 					participantes.add(us);
 				}
 				updateReunion.setUsuarios(participantes);
@@ -139,8 +139,8 @@ public class ReunionServiceImpl implements ReunionService {
 	@Override
 	public void eliminarParticipante(Reunion reunion, int codusu) {
 		
-		Reunion reu = rr.getOne(reunion.getCodReunion());
-		Usuarios us = userR.getOne(codusu);
+		Reunion reu = rr.findOne(reunion.getCodReunion());
+		Usuarios us = userR.findOne(codusu);
 		
 		if(reu != null && us != null) {
 			

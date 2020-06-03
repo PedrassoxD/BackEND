@@ -42,7 +42,7 @@ public class ArchivosServiceImpl implements ArchivosService {
 	@Override
 	public void adjuntarArchivo(MultipartFile archivo, String nombre, int codReunion) throws IOException {
 		
-		Reunion reu = rr.getOne(codReunion);
+		Reunion reu = rr.findOne(codReunion);
 		
 		if(reu != null) {
 			
@@ -85,7 +85,7 @@ public class ArchivosServiceImpl implements ArchivosService {
 	@Override
 	public void borrarArchivo(int codarchivo) {
 		
-		Archivos arch = arR.getOne(codarchivo);
+		Archivos arch = arR.findOne(codarchivo);
 		
 		if(arch != null) {
 			arR.delete(arch);
