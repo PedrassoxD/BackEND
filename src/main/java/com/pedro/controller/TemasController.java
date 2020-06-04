@@ -24,7 +24,7 @@ import com.pedro.service.TemasService;
  * @author Westermeyer
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://mmfront-project.herokuapp.com/")
 @RequestMapping(value="/temas")
 public class TemasController {
 
