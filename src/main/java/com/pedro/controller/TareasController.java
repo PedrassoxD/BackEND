@@ -24,7 +24,7 @@ import com.pedro.service.TareasService;
  * @author Westermeyer
  */
 @RestController
-@CrossOrigin(origins = "https://mmfront-project.herokuapp.com/")
+@CrossOrigin(origins = "https://mmfront-project.herokuapp.com")
 @RequestMapping(value="/tareas")
 public class TareasController {
 

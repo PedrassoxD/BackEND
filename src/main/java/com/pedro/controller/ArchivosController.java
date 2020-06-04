@@ -26,7 +26,7 @@ import com.pedro.service.ArchivosService;
  * @author Westermeyer
  */
 @RestController
-@CrossOrigin(origins = "https://mmfront-project.herokuapp.com/")
+@CrossOrigin(origins = "https://mmfront-project.herokuapp.com")
 @RequestMapping(value="/archivos")
 public class ArchivosController {
 

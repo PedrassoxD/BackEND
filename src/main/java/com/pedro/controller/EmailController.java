@@ -21,7 +21,7 @@ import com.pedro.service.EmailService;
  * @author Westermeyer
  */
 @RestController
-@CrossOrigin(origins = "https://mmfront-project.herokuapp.com/")
+@CrossOrigin(origins = "https://mmfront-project.herokuapp.com")
 @RequestMapping(value="/email")
 public class EmailController {
 	

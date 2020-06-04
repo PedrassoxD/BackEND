@@ -25,7 +25,7 @@ import com.pedro.service.UserService;
  * @author pedro
  */
 @RestController
-@CrossOrigin(origins = "https://mmfront-project.herokuapp.com/")
+@CrossOrigin(origins = "https://mmfront-project.herokuapp.com")
 @RequestMapping(value="/usuarios")
 public class UsuariosController {
 	

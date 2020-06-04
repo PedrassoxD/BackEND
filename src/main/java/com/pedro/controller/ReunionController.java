@@ -24,7 +24,7 @@ import com.pedro.service.ReunionService;
  * @author Westermeyer
  */
 @RestController
-@CrossOrigin(origins = "https://mmfront-project.herokuapp.com/")
+@CrossOrigin(origins = "https://mmfront-project.herokuapp.com")
 @RequestMapping(value="/reunion")
 public class ReunionController {
 	
