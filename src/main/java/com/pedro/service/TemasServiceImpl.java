@@ -232,7 +232,7 @@ public class TemasServiceImpl implements TemasService {
 			if(segTema.getSeguimiento() == null) {
 				seguimiento += tema.getSeguimiento();
 			}else {
-				seguimiento += tema.getSeguimiento() + "\n" + tema.getSeguimiento();
+				seguimiento += segTema.getSeguimiento() + "\n" + tema.getSeguimiento();
 			}
 			segTema.setSeguimiento(seguimiento);
 			tr.save(segTema);
